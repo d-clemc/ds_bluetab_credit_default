@@ -1,4 +1,63 @@
-# Here you can define all your datasets by using simple YAML syntax.
-#
-# Documentation for this file format can be found in "The Data Catalog"
-# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+# Main data
+credit_cards_raw:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/default of credit card clients.xls
+  load_args:
+    engine: xlrd
+    header: [1]
+
+payamt4_preprocessed_data:
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/payamt4_preprocessed_data.csv
+  save_args:
+    index: False
+
+payamt4_model:
+  type: pickle.PickleDataset
+  filepath: data/06_models/payamt4_model.pkl
+
+payamt4_cv_results:
+  type: json.JSONDataset
+  filepath: data/07_model_output/payamt4_cv_results.json
+
+payamt4_metrics:
+  type: json.JSONDataset
+  filepath: data/07_model_output/payamt4_metrics.json
+
+X_train_payamt4:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_train_payamt4.csv
+  save_args:
+    index: False
+
+X_test_payamt4:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_test_payamt4.csv
+  save_args:
+    index: False
+
+y_train_payamt4:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_train_payamt4.csv
+  save_args:
+    index: False
+
+y_test_payamt4:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_test_payamt4.csv
+  save_args:
+    index: False
+
+payamt4_eval_metrics:
+  type: json.JSONDataset
+  filepath: data/07_model_output/payamt4_eval_metrics.json
+
+payamt4_predictions:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/payamt4_predictions.csv
+  save_args:
+    index: False
+
+payamt4_reporting:
+  type: text.TextDataset
+  filepath: data/08_reporting/payamt4_reporting_done.txt
