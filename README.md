@@ -7,6 +7,8 @@ También, se realiza modelo de predicción para **default.payment.next.month**, 
 
 notebooks/eda_default_payment_next_month.ipynb
 
+La realización de modelos se encuentran en [notebooks]
+
 ## 🚀 Estructura del Pipeline
 
 El proyecto implementa 4 pipelines modulares en Kedro:
